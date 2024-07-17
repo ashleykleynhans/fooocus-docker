@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ARGS=("$@" --listen --port 3001)
+
 export PYTHONUNBUFFERED=1
 export HF_HOME="/workspace"
 source /venv/bin/activate
@@ -11,7 +13,7 @@ then
     nohup python3 entry_with_update.py --listen --port 3001 --preset ${PRESET} > /workspace/logs/fooocus.log 2>&1 &
 else
     echo "Starting Fooocus using defaults"
-    nohup python3 entry_with_update.py --listen --port 3001 > /workspace/logs/fooocus.log 2>&1 &
+    nohup python3 entry_with_update.py "${ARGS[@]}" > /workspace/logs/fooocus.log 2>&1 &
 fi
 
 echo "Fooocus started"

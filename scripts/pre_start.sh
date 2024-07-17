@@ -43,7 +43,14 @@ then
     echo ""
     echo "   /start_fooocus.sh"
 else
-    /start_fooocus.sh
+    ARGS=()
+
+    if [[ ${EXTRA_ARGS} ]];
+    then
+          ARGS=("${ARGS[@]}" ${EXTRA_ARGS})
+    fi
+
+    /start_fooocus.sh "${ARGS[@]}"
 fi
 
 echo "All services have been started"

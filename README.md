@@ -72,6 +72,7 @@ docker run -d \
   -p 7777:7777 \
   -p 8888:8888 \
   -p 2999:2999 \
+  -e EXTRA_ARGS="--theme dark --output-path=/workspace"  \
   ashleykza/fooocus:latest
 ```
 
@@ -88,12 +89,13 @@ You can obviously substitute the image name and tag with your own.
 
 ## Environment Variables
 
-| Variable             | Description                                      | Default                   |
-|----------------------|--------------------------------------------------|---------------------------|
-| JUPYTER_LAB_PASSWORD | Set a password for Jupyter lab                   | not set - no password     |
-| DISABLE_AUTOLAUNCH   | Disable Web UIs from launching automatically     | (not set)                 |
-| DISABLE_SYNC         | Disable syncing if using a RunPod network volume | (not set)                 |
-| PRESET               | Fooocus Preset (anime/realistic)                 | (not set)                 |
+| Variable             | Description                                                          | Default                |
+|----------------------|----------------------------------------------------------------------|------------------------|
+| JUPYTER_LAB_PASSWORD | Set a password for Jupyter lab                                       | not set - no password  |
+| DISABLE_AUTOLAUNCH   | Disable Web UIs from launching automatically                         | (not set)              |
+| DISABLE_SYNC         | Disable syncing if using a RunPod network volume                     | (not set)              |
+| PRESET               | Fooocus Preset (anime/realistic)                                     | (not set)              |
+| EXTRA_ARGS           | Specify extra command line arguments for Fooocus, eg. `--theme dark` | (not set)              |
 
 ## Logs
 
