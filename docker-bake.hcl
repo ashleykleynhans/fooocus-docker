@@ -11,7 +11,7 @@ variable "APP" {
 }
 
 variable "RELEASE" {
-    default = "2.5.0"
+    default = "2.5.1"
 }
 
 variable "CU_VERSION" {
@@ -23,7 +23,7 @@ variable "BASE_IMAGE_REPOSITORY" {
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "2.0.0"
+    default = "2.1.0"
 }
 
 variable "CUDA_VERSION" {
@@ -31,7 +31,7 @@ variable "CUDA_VERSION" {
 }
 
 variable "TORCH_VERSION" {
-    default = "2.3.1"
+    default = "2.4.0"
 }
 
 variable "PYTHON_VERSION" {
@@ -40,13 +40,13 @@ variable "PYTHON_VERSION" {
 
 target "default" {
     dockerfile = "Dockerfile"
-    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}.post1"]
+    tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
     args = {
         RELEASE = "${RELEASE}"
         BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
         INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
         TORCH_VERSION = "${TORCH_VERSION}+cu${CU_VERSION}"
-        XFORMERS_VERSION = "0.0.27"
+        XFORMERS_VERSION = "0.0.27.post1"
         FOOOCUS_VERSION = "v${RELEASE}"
         CIVITAI_DOWNLOADER_VERSION = "2.1.0"
     }
