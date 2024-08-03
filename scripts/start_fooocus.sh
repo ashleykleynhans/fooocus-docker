@@ -9,13 +9,13 @@ cd /workspace/Fooocus
 
 if [[ ${PRESET} ]]
 then
-    echo "Starting Fooocus using preset: ${PRESET}"
+    echo "FOOOCUS: Starting Fooocus using preset: ${PRESET}"
     nohup python3 entry_with_update.py --listen --port 3001 --preset ${PRESET} > /workspace/logs/fooocus.log 2>&1 &
 else
-    echo "Starting Fooocus using defaults"
+    echo "FOOOCUS: Starting Fooocus using defaults"
     nohup python3 entry_with_update.py "${ARGS[@]}" > /workspace/logs/fooocus.log 2>&1 &
 fi
 
-echo "Fooocus started"
-echo "Log file: /workspace/logs/fooocus.log"
+echo "FOOOCUS: Fooocus started"
+echo "FOOOCUS: Log file: /workspace/logs/fooocus.log"
 deactivate
